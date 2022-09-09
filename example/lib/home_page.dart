@@ -105,7 +105,7 @@ class HomePageState extends State<HomePage> {
 
   initCurrentCall() async {
     //check current call from pushkit if possible
-    var calls = await FlutterCallkitIncoming.activeCalls();
+    var calls = await BilltechIncomingCall.activeCalls();
     if (calls is List) {
       if (calls.isNotEmpty) {
         print('DATA: $calls');
@@ -165,14 +165,14 @@ class HomePageState extends State<HomePage> {
           'ringtonePath': 'system_ringtone_default'
         }
       };
-      await FlutterCallkitIncoming.showCallkitIncoming(params);
+      await BilltechIncomingCall.showCallkitIncoming(params);
     });
   }
 
   Future<void> endCurrentCall() async {
     initCurrentCall();
     var params = <String, dynamic>{'id': this._currentUuid};
-    await FlutterCallkitIncoming.endCall(params);
+    await BilltechIncomingCall.endCall(params);
   }
 
   Future<void> startOutGoingCall() async {
@@ -185,27 +185,27 @@ class HomePageState extends State<HomePage> {
       'extra': <String, dynamic>{'userId': '1a2b3c4d'},
       'ios': <String, dynamic>{'handleType': 'number'}
     }; //number/email
-    await FlutterCallkitIncoming.startCall(params);
+    await BilltechIncomingCall.startCall(params);
   }
 
   Future<void> activeCalls() async {
-    var calls = await FlutterCallkitIncoming.activeCalls();
+    var calls = await BilltechIncomingCall.activeCalls();
     print(calls);
   }
 
   Future<void> endAllCalls() async {
-    await FlutterCallkitIncoming.endAllCalls();
+    await BilltechIncomingCall.endAllCalls();
   }
 
   Future<void> getDevicePushTokenVoIP() async {
     var devicePushTokenVoIP =
-        await FlutterCallkitIncoming.getDevicePushTokenVoIP();
+        await BilltechIncomingCall.getDevicePushTokenVoIP();
     print(devicePushTokenVoIP);
   }
 
   Future<void> listenerEvent(Function? callback) async {
     try {
-      FlutterCallkitIncoming.onEvent.listen((event) async {
+      BilltechIncomingCall.onEvent.listen((event) async {
         print('HOME: $event');
         switch (event!.name) {
           case CallEvent.ACTION_CALL_INCOMING:

@@ -1,9 +1,9 @@
 name: billtech_incoming_call
 description: Billtech Incoming Call to show callkit screen in your Flutter app.
-version: 1.0.0+1
 homepage: https://github.com/Billtech775/billtech_incoming_call
 repository: https://github.com/Billtech775/billtech_incoming_call
 issue_tracker: https://github.com/Billtech775/billtech_incoming_call/issues
+version: 1.0.0+2
 
 false_secrets:
   - /example/**

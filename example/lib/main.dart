@@ -54,7 +54,7 @@ Future<void> showCallkitIncoming(String uuid) async {
       'ringtonePath': 'system_ringtone_default'
     }
   };
-  await FlutterCallkitIncoming.showCallkitIncoming(params);
+  await BilltechIncomingCall.showCallkitIncoming(params);
 }
 
 void main() {
@@ -85,7 +85,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   getCurrentCall() async {
     //check current call from pushkit if possible
-    var calls = await FlutterCallkitIncoming.activeCalls();
+    var calls = await BilltechIncomingCall.activeCalls();
     if (calls is List) {
       if (calls.isNotEmpty) {
         print('DATA: $calls');
@@ -151,7 +151,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   Future<void> getDevicePushTokenVoIP() async {
     var devicePushTokenVoIP =
-        await FlutterCallkitIncoming.getDevicePushTokenVoIP();
+        await BilltechIncomingCall.getDevicePushTokenVoIP();
     print(devicePushTokenVoIP);
   }
 }

@@ -8,7 +8,7 @@ import 'package:flutter/services.dart';
 /// * endCall(dynamic)
 /// * endAllCalls()
 ///
-class FlutterCallkitIncoming {
+class BilltechIncomingCall {
   static const MethodChannel _channel =
       const MethodChannel('flutter_callkit_incoming');
   static const EventChannel _eventChannel =

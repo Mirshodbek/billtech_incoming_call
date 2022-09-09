@@ -34,7 +34,7 @@ class CallingPageState extends State<CallingPage> {
                           MaterialStateProperty.all<Color>(Colors.blue),
                     ),
                     onPressed: () async {
-                      FlutterCallkitIncoming.endCall(calling);
+                      BilltechIncomingCall.endCall(calling);
                       calling = null;
                       NavigationService.instance.goBack();
                       await requestHttp('END_CALL');
@@ -56,7 +56,7 @@ class CallingPageState extends State<CallingPage> {
   void dispose() {
     super.dispose();
     if (calling != null) {
-      FlutterCallkitIncoming.endCall(calling);
+      BilltechIncomingCall.endCall(calling);
     }
   }
 }
